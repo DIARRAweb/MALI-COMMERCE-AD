@@ -1,0 +1,359 @@
+/* HERO (page d’accueil) */
+.hero {
+  height: 80vh;
+  background: url('images/produit1.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); /* assombrit l’image */
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+.hero-content h1 span {
+  color: orange;
+}
+.btn {
+  background: orange;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.btn:hover {
+  background: darkorange;
+}
+
+/* CATEGORIES */
+.categories {
+  padding: 40px;
+  text-align: center;
+}
+.category-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.category-card {
+  background: green;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 150px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.category-card:hover {
+  background: darkgreen;
+  transform: scale(1.05);
+}
+
+/* PRODUITS */
+.products {
+  padding: 50px;
+  text-align: center;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.product-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: transform 0.3s;
+}
+.product-card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+}
+.price {
+  font-size: 1.2em;
+  color: green;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.product-card button {
+  background: green;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.product-card button:hover {
+  background: darkgreen;
+}
+
+
+/* NAVIGATION */
+header {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+}
+nav .logo {
+  color: green;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: 0.3s;
+}
+nav ul li a:hover {
+  color: orange;
+}
+
+/* FOOTER */
+footer {
+  position: fixed;       /* reste collé en bas */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(51, 51, 51, 0.5); /* noir avec 50% de transparence */
+  color: white;
+  text-align: center;
+  padding: 8px 0;        /* hauteur réduite */
+  font-size: 0.9em;      /* texte légèrement plus petit */
+  z-index: 1000;
+}
+
+body {
+  margin-bottom: 50px; /* espace pour ne pas que le contenu soit caché derrière le footer */
+}
+
+
+/* BARRE DE RECHERCHE */
+.search-bar {
+  margin: 20px auto;
+  text-align: center;
+}
+.search-bar input {
+  width: 60%;
+  max-width: 400px;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  outline: none;
+  transition: 0.3s;
+}
+.search-bar input:focus {
+  border-color: orange;
+  box-shadow: 0 0 8px rgba(255,165,0,0.5);
+}
+
+
+
+/* HEADER / NAVIGATION */
+header {
+  background: green; /* couleur principale */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 20px;
+}
+
+nav .logo {
+  color: white;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+/* EFFET AU SURVOL */
+nav ul li a:hover {
+  background: darkgreen;
+  color: #ffd700;
+}
+
+/* RESPONSIVE POUR PETITS ÉCRANS */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  nav ul li a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+/* NAVIGATION GLOBALE */
+header {
+  background: green;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 20px;
+  position: relative;
+}
+
+nav .logo {
+  color: white;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  background: darkgreen;
+  color: #ffd700;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+}
+
+/* RESPONSIVE POUR MOBILE */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: row; /* logo à gauche, hamburger à droite */
+    justify-content: space-between;
+  }
+  .hamburger {
+    display: block;
+  }
+  nav ul {
+    display: none; /* caché par défaut */
+    flex-direction: column;
+    width: 100%;
+    background: green;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    padding: 10px 0;
+    border-radius: 0 0 12px 12px;
+  }
+  nav ul li {
+    margin: 10px 0;
+    text-align: center;
+  }
+  nav ul li a {
+    display: block;
+    width: 100%;
+  }
+  nav ul.active {
+    display: flex;
+  }
+}
+
+
+
+
+/* HAMBURGER MENU 3 BARRES */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white; /* couleur des barres */
+  border-radius: 2px;
+}
+
+/* Affichage sur petits écrans */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+}
+
+

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MALI COMMERCE - Boutique</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* HAMBURGER MENU */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: green;
+      border-radius: 2px;
+    }
+
+    /* RESPONSIVE POUR MOBILE */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        border-radius: 0 0 12px 12px;
+        z-index: 200;
+      }
+      nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+      nav ul li a {
+        color: white;
+        font-weight: bold;
+        display: block;
+        padding: 10px 20px;
+      }
+      .hamburger {
+        display: flex;
+      }
+      nav ul.active {
+        display: flex;
+      }
+    }
+	
+	#product-counter-bottom {
+    position: fixed;
+    bottom: 0; /* en bas de la page */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 128, 0, 0.5); /* vert semi-transparent */
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+    z-index: 9999;
+    text-align: center;
+  }
+	
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1 class="logo">MALI COMMERCE</h1>
+
+      <!-- MENU HAMBURGER -->
+	  <div class="hamburger" id="hamburger">&#9776;</div>
+      <!-- LIENS DE NAVIGATION -->
+      <ul id="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="panier.html">Panier 🛒</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="products">
+    <h2>Nos Produits</h2>
+
+    <!-- BARRE DE RECHERCHE -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Rechercher un produit...">
+    </div>
+
+    <div class="product-grid">
+     <!-- COMPTEUR DE PRODUITS FIXE EN BAS -->
+<div id="product-counter-bottom">
+  <span id="product-count">0</span> produit(s) disponible(s) dans la boutique
+</div>
+
+      <div class="product-card">
+        <img src="image/D_Q_NP_830954-MLU78624129198_092024-O.webp" alt="Jasmine 20G">
+        <h3>Jasmine 20G</h3>
+        <p class="price">200 FCFA</p>
+        <button onclick="addToCart('Jasmine 20G',200, 'image/D_Q_NP_830954-MLU78624129198_092024-O.webp')">Ajouter au panier</button>
+      </div>
+
+      <div class="product-card">
+        <img src="image/Screenshot_20250917_163131.jpg" alt="Chicore Leroux">
+        <h3>Chicore Leroux</h3>
+        <p class="price">3 500 FCFA</p>
+        <button onclick="addToCart('Chicore Leroux',3500, 'image/Screenshot_20250917_163131.jpg')">Ajouter au panier</button>
+      </div>
+
+      <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 031233.png" alt="Nescafé Classic 200G">
+        <h3>Nescafé Classic 200G</h3>
+        <p class="price">4 500 FCFA</p>
+        <button onclick="addToCart('Nescafé Classic 200G', 4500, 'image/Capture d’écran 2025-10-01 031233.png')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/couche.jpg" alt="Couche softcare">
+        <h3>Couche softcare</h3>
+        <p class="price">2 500 FCFA</p>
+        <button onclick="addToCart('Couche softcare', 2500, 'image/couche.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/coton.jpg" alt="Coton Tige">
+        <h3>Coton Tige</h3>
+        <p class="price">750 FCFA</p>
+        <button onclick="addToCart('Couche softcare', 750, 'image/coton.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/couche bebe.jpg" alt="">
+        <h3>Couche Bébé</h3>
+        <p class="price">3 500 FCFA</p>
+        <button onclick="addToCart('Couche Bébé',3500, 'image/couche bebe.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/leroux.jpg" alt="Chicore Leroux">
+        <h3>Chicore Leroux</h3>
+        <p class="price">2 250 FCFA</p>
+        <button onclick="addToCart('Chicore Leroux', 2250, 'image/leroux.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/nido8.jpg" alt="Nido 800G">
+        <h3>Nido 800G</h3>
+        <p class="price">6 250 FCFA</p>
+        <button onclick="addToCart('Nido 800G',6250 , 'image/nido8.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/maxwelle.jpg" alt="Maxwelle House GF 200G">
+        <h3>Maxwelle House GF 200G</h3>
+        <p class="price">5 500 FCFA</p>
+        <button onclick="addToCart('Maxwelle House GF 200G',5500 , 'image/maxwelle.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/nido2.jpg" alt="Nido 2500G">
+        <h3>Nido 2500G</h3>
+        <p class="price">18 000 FCFA</p>
+        <button onclick="addToCart('Nido 2500G',18000 , 'image/nido2.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/bonbont.jpg" alt="Bonbon Tamatin">
+        <h3>Bonbon Tamatin</h3>
+        <p class="price">1 250 FCFA</p>
+        <button onclick="addToCart('Bonbon Tamatin',1250 , 'image/bonbont.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/bonbonp.jpg" alt="Bonbon Pecto">
+        <h3>Bonbon Pecto</h3>
+        <p class="price">250 FCFA</p>
+        <button onclick="addToCart('Bonbon Pecto',250 , 'image/bonbonp.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/bonbong.jpg" alt="Bonbon Gimgembre">
+        <h3>Bonbon Gimgembre</h3>
+        <p class="price">1 100 FCFA</p>
+        <button onclick="addToCart('Bonbon Gimgembre',1100 , 'image/bonbong.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/zara.jpg" alt="Zara">
+        <h3>Zara</h3>
+        <p class="price">1 100 FCFA</p>
+        <button onclick="addToCart('Zara', 1100, 'image/zara.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/valda.jpg" alt="Valda">
+        <h3>Valda</h3>
+        <p class="price">250 FCFA</p>
+        <button onclick="addToCart('Valda',250 , 'image/valda.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/bonbonm.jpg" alt="Bonbon Menthe">
+        <h3>Bonbon Menthe</h3>
+        <p class="price">250 FCFA</p>
+        <button onclick="addToCart('Bonbon Menthe',250 , 'image/bonbonm.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/blox.jpg" alt="Blox">
+        <h3>Blox</h3>
+        <p class="price">2 000 FCFA</p>
+        <button onclick="addToCart('Blox',2000 , 'image/blox.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/charbon.webp" alt="Brosse charbon">
+        <h3>Brosse charbon</h3>
+        <p class="price">500 FCFA</p>
+        <button onclick="addToCart('Brosse charbon', 500, 'image/charbon.webp')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/flecha.jpg" alt="Thé Flecha">
+        <h3>Thé Flecha</h3>
+        <p class="price">1 500 FCFA</p>
+        <button onclick="addToCart('Thé Flecha',1500 , 'image/flecha.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/achoura.jpg" alt="Thé Achoura Jasmin">
+        <h3>Thé Achoura Jasmin</h3>
+        <p class="price">2 500 FCFA</p>
+        <button onclick="addToCart('Thé Achoura Jasmin',2500 , 'image/achoura.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/bottle.jpg" alt="Thermos Vocguim Bottle">
+        <h3>Thermos Vocguim Bottle</h3>
+        <p class="price">4 000 FCFA</p>
+        <button onclick="addToCart('Thermos Vocguim Bottle', 4000, 'image/bottle.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/eau.jpg" alt="Eau de Cologne Petit">
+        <h3>Eau de Cologne Petit</h3>
+        <p class="price">500 FCFA</p>
+        <button onclick="addToCart('Eau de Cologne Petit', 500, 'image/eau.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/enfant.jpg" alt="Broche Enfant">
+        <h3>Broche Enfant</h3>
+        <p class="price">500 FCFA</p>
+        <button onclick="addToCart('Broche Enfant',500 , 'image/enfant.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/the-jasmin-achoura-pot-300g.jpg" alt="Achoura Boite">
+        <h3>Achoura Boite</h3>
+        <p class="price">1 500 FCFA</p>
+        <button onclick="addToCart('Achoura Boite', 1500, 'image/the-jasmin-achoura-pot-300g.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/50g-100g-200g-Baby-Powder.jpg" alt="Poudre Bébé">
+        <h3>Poudre Bébé</h3>
+        <p class="price">500 FCFA</p>
+        <button onclick="addToCart('Poudre Bébé',500 , 'image/50g-100g-200g-Baby-Powder.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/aveat.jpg" alt="Bibron Aveat">
+        <h3>Bibron Aveat</h3>
+        <p class="price">2 000 FCFA</p>
+        <button onclick="addToCart('Bibron Aveat',2000 , 'image/aveat.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/alb.jpg" alt="Albaraka jasmine">
+        <h3>Albaraka jasmine</h3>
+        <p class="price">2 500 FCFA</p>
+        <button onclick="addToCart('Albaraka jasmine',2500 , 'image/alb.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/alim.jpg" alt="Aliminium">
+        <h3>Aliminium</h3>
+        <p class="price">2 750 FCFA</p>
+        <button onclick="addToCart('Aliminium',2750 , 'image/alim.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/panuelo-papel-tissue-2-capas-150unid.jpg" alt="Clinex">
+        <h3>Clinex</h3>
+        <p class="price">500 FCFA</p>
+        <button onclick="addToCart('Clinex', 500, 'image/panuelo-papel-tissue-2-capas-150unid.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/Screenshot_20250917_001638.jpg" alt="Rasoir Dorco Paquet 10">
+        <h3>Rasoir Dorco Paquet 10</h3>
+        <p class="price">300 FCFA</p>
+        <button onclick="addToCart('Rasoir Dorco Paquet 10', 300, 'image/Screenshot_20250917_001638.jpg')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 031437.png" alt="Nido 400G">
+        <h3>Nido 400G</h3>
+        <p class="price">3 250 FCFA</p>
+        <button onclick="addToCart('Nido 400G',3250 , 'image/Capture d’écran 2025-10-01 031437.png')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 031708.png" alt="Café Radja 180G">
+        <h3>Café Radja 180G</h3>
+        <p class="price">2 000 FCFA</p>
+        <button onclick="addToCart('Café Radja 180G',2000 , 'image/Capture d’écran 2025-10-01 031708.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 031852.png" alt="Nido one plus">
+        <h3>Nido one plus</h3>
+        <p class="price">3 500 FCFA</p>
+        <button onclick="addToCart('Nido one plus', 3500, 'image/Capture d’écran 2025-10-01 031852.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 032055.png" alt="Nescafé classic 50G">
+        <h3>Nescafé classic 50G</h3>
+        <p class="price">1 250 FCFA</p>
+        <button onclick="addToCart('Nescafé classic 50G', 1250, 'image/Capture d’écran 2025-10-01 032055.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 103648.png" alt="Thé Citron 400G">
+        <h3>Thé Citron 400G</h3>
+        <p class="price">1 750 FCFA</p>
+        <button onclick="addToCart('Thé Citron 400G', 1750, 'image/Capture d’écran 2025-10-01 103648.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 103831.png" alt="France lait 1 400G">
+        <h3>France lait 1 400G</h3>
+        <p class="price">3 750 FCFA</p>
+        <button onclick="addToCart('France lait 1 400G', 3750, 'image/Capture d’écran 2025-10-01 103831.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 104007.png" alt="France lait 2 400G">
+        <h3>France lait 2 400G</h3>
+        <p class="price">3 750 FCFA</p>
+        <button onclick="addToCart('France lait 2 400G', 3750, 'image/Capture d’écran 2025-10-01 104007.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 104134.png" alt="France lait 3 400G">
+        <h3>France lait 3 400G</h3>
+        <p class="price">3 750 FCFA</p>
+        <button onclick="addToCart('France lait 3 400G', 3750, 'image/Capture d’écran 2025-10-01 104134.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 104302.png" alt="France lait N3 900G">
+        <h3>France lait N3 900G</h3>
+        <p class="price">7 250 FCFA</p>
+        <button onclick="addToCart('France lait N3 900G', 7250, 'image/Capture d’écran 2025-10-01 104302.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 104743.png" alt="Café Nardi 1 kg">
+        <h3>Café Nardi 1 kg</h3>
+        <p class="price">6 000 FCFA</p>
+        <button onclick="addToCart('Café Nardi 1 kg', 6000 , 'image/Capture d’écran 2025-10-01 104743.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 105116.png" alt="Nan 1 400G">
+        <h3>Nan 1 400G</h3>
+        <p class="price">4 500 FCFA</p>
+        <button onclick="addToCart('Nan 1 400G',4500 , 'image/Capture d’écran 2025-10-01 105116.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 105333.png" alt="Nan 2 400G">
+        <h3>Nan 2 400G</h3>
+        <p class="price">4 500 FCFA</p>
+        <button onclick="addToCart('Nan 2 400G', 4500, 'image/Capture d’écran 2025-10-01 105333.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 105508.png" alt="Café Belier 250G">
+        <h3>Café Belier 250G</h3>
+        <p class="price">1 250 FCFA</p>
+        <button onclick="addToCart('Café Belier 250G',1250 , 'image/Capture d’écran 2025-10-01 105508.png')">Ajouter au panier</button>
+      </div>
+	  
+	  <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 105648.png" alt="Nan 3 400G">
+        <h3>Nan 3 400G</h3>
+        <p class="price">4 500 FCFA</p>
+        <button onclick="addToCart('Nan 3 400G',4500 , 'image/Capture d’écran 2025-10-01 105648.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 105837.png" alt="Café Carte Noire">
+        <h3>Café Carte Noire</h3>
+        <p class="price">3 500 FCFA</p>
+        <button onclick="addToCart('Café Carte Noire',3500 , 'image/Capture d’écran 2025-10-01 105837.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 110008.png" alt="Cappucino">
+        <h3>Cappucino</h3>
+        <p class="price">3 250 FCFA</p>
+        <button onclick="addToCart('Cappucino', 3250, 'image/Capture d’écran 2025-10-01 110008.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 110244.png" alt="Guigoz Nestie 1 400G">
+        <h3>Guigoz Nestie 1 400G</h3>
+        <p class="price">3 250 FCFA</p>
+        <button onclick="addToCart('Guigoz Nestie 1 400G', 3250, 'image/Capture d’écran 2025-10-01 110244.png')">Ajouter au panier</button>
+      </div>
+	  
+	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 110424.png" alt="Nesquik 400G">
+        <h3>Nesquik 400G</h3>
+        <p class="price">2 250 FCFA</p>
+        <button onclick="addToCart('Nesquik 400G',2250 , 'image/Capture d’écran 2025-10-01 110424.png')">Ajouter au panier</button>
+      </div>
+	  
+	  	   <div class="product-card">
+        <img src="image/Capture d’écran 2025-10-01 110424.png" alt="Nesquik 400G">
+        <h3>Nesquik 400G</h3>
+        <p class="price">2 250 FCFA</p>
+        <button onclick="addToCart('Nesquik 400G',2250 , 'image/Capture d’écran 2025-10-01 110424.png')">Ajouter au panier</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MALI COMMERCE</p>
+    <p>Site développé par Idrissa DIARRA</p>
+  </footer>
+
+  <!-- SCRIPT pour recherche produit -->
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const products = document.querySelectorAll(".product-card");
+
+    searchInput.addEventListener("keyup", function() {
+      const filter = searchInput.value.toLowerCase();
+      products.forEach(product => {
+        const text = product.innerText.toLowerCase();
+        product.style.display = text.includes(filter) ? "block" : "none";
+      });
+    });
+  </script>
+
+  <!-- SCRIPT panier -->
+  <script src="cart.js"></script>
+
+  <!-- SCRIPT menu hamburger -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+  
+  <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const productCount = document.querySelectorAll('.product-card').length;
+    document.getElementById('product-count').innerText = productCount;
+  });
+</script>
+
+ 
+</body>
+</html>
+

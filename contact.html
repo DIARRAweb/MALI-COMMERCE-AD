@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MALI COMMERCE - Contact</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin:0; padding:0; background:#f5f5f5; color:#333;}
+    .logo { font-size:1.8em; font-weight:bold; color:white; }
+    nav { display:flex; justify-content: space-between; align-items:center; max-width:1200px; margin:auto; padding:0 20px; }
+    nav ul { list-style:none; display:flex; gap:20px; }
+    nav ul li a { color:white; text-decoration:none; font-weight:bold; padding:8px 15px; border-radius:8px; transition:0.3s; }
+    nav ul li a:hover { background: darkgreen; color:#ffd700; }
+
+    .contact { max-width:600px; margin:50px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+    .contact h2 { text-align:center; margin-bottom:25px; font-size:2em; }
+    form { display:flex; flex-direction:column; gap:15px; }
+    form input, form textarea { padding:12px; border-radius:8px; border:1px solid #ccc; font-size:1em; width:100%; }
+    form textarea { resize:vertical; min-height:120px; }
+    form button { background: green; color:white; padding:12px; border:none; border-radius:8px; font-size:1.1em; cursor:pointer; transition:0.3s; }
+    form button:hover { background: darkgreen; }
+
+    /* FOOTER */
+footer {
+  position: fixed;       /* reste collé en bas */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(51, 51, 51, 0.5); /* noir avec 50% de transparence */
+  color: white;
+  text-align: center;
+  padding: 8px 0;        /* hauteur réduite */
+  font-size: 0.9em;      /* texte légèrement plus petit */
+  z-index: 1000;
+}
+
+body {
+  margin-bottom: 50px; /* espace pour ne pas que le contenu soit caché derrière le footer */
+}
+
+
+    /* HAMBURGER */
+    .hamburger { display: none; font-size: 2em; color: white; cursor: pointer; }
+    @media (max-width: 768px) {
+      nav ul { display: none; flex-direction: column; width: 100%; background: green; position: absolute; top: 60px; left: 0; padding: 10px 0; border-radius: 0 0 12px 12px; }
+      nav ul li { margin: 10px 0; text-align: center; }
+      nav ul li a { display:block; padding:10px 20px; }
+      .hamburger { display: block; }
+    }
+    nav ul.active { display: flex; flex-direction: column; gap:10px; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1 class="logo">MALI COMMERCE</h1>
+      <!-- Hamburger pour mobile -->
+      <div class="hamburger" id="hamburger">&#9776;</div>
+      <ul id="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contact">
+    <h2>Contactez-nous</h2>
+    <form action="https://formspree.io/f/xqaybwrg" method="POST">
+      <input type="text" name="nom" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="message" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MALI COMMERCE</p>
+    <p>Site développé par Idrissa DIARRA</p>
+  </footer>
+
+  <!-- SCRIPT menu hamburger -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

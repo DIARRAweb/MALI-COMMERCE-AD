@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MALI COMMERCE - Panier</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .cart {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .cart h2, .cart h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    #cart-items {
+      margin-bottom: 20px;
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 15px;
+    }
+    .cart-item-info {
+      flex: 1;
+    }
+    #total {
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: right;
+      margin: 15px 0;
+      color: green;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    form input, form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      width: 100%;
+    }
+    form button {
+      background: green;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    form button:hover { background: darkgreen; }
+
+    /* Hamburger menu */
+    .hamburger { display: none; font-size: 2em; color: white; cursor: pointer; }
+    @media (max-width: 768px) {
+      nav ul { display: none; flex-direction: column; width: 100%; background: rgba(0, 0, 0, 0.6); /* noir semi-transparent */; position: absolute; top: 60px; left: 0; padding: 10px 0; border-radius: 0 0 12px 12px; }
+      nav ul li { margin: 10px 0; text-align: center; }
+      nav ul li a { display:block; padding:10px 20px; }
+      .hamburger { display: block; }
+    }
+    nav ul.active { display: flex; flex-direction: column; gap:10px; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1 class="logo">MALI COMMERCE</h1>
+      <!-- Hamburger pour mobile -->
+      <div class="hamburger" id="hamburger">&#9776;</div>
+      <ul id="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="panier.html">Panier 🛒</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="cart">
+    <h2>Votre Panier</h2>
+    <div id="cart-items"></div>
+    <p id="total">Total : 0 FCFA</p>
+
+    <h3>Passer la commande</h3>
+    <form id="orderForm" action="https://formspree.io/f/xqaybwrg" method="POST">
+      <input type="text" name="nom" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <input type="text" name="adresse" placeholder="Votre adresse" required>
+      <input type="tel" name="telephone" placeholder="Votre téléphone" required>
+      <textarea name="message" placeholder="Instructions supplémentaires..."></textarea>
+      <button type="submit">Valider la commande</button>
+    </form>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 MALI COMMERCE</p>
+    <p>Site développé par Idrissa DIARRA</p>
+  </footer>
+
+  <!-- Script panier -->
+  <script src="cart.js"></script>
+
+  <!-- Script menu hamburger -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
