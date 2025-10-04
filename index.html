@@ -107,21 +107,7 @@ body {
   padding: 20px;
   background: rgba(0, 128, 0, 0.1); /* fond vert très léger */
   border-radius: 10px;
-}
-
-.product-counter h2 {
-  font-size: 1.8em;
-  color: green;
-  margin-bottom: 10px;
-}
-
-.product-counter p {
-  font-size: 2em;
-  font-weight: bold;
-  color: darkgreen;
-}
-
-	
+}	
   </style>
   
 </head>
@@ -223,18 +209,8 @@ body {
     });
   </script>
   
-  <script>
-  function updateProductCount() {
-    // Compte le nombre de produits
-    const productCount = document.querySelectorAll('.product-card').length;
-    // Met à jour le texte dans l'élément
-    document.getElementById('product-count').innerText = productCount;
-  }
-
-  // Appelle la fonction au chargement de la page
-  window.addEventListener('DOMContentLoaded', updateProductCount);
-</script>
 
 
 </body>
 </html>
+
